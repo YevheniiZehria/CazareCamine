@@ -19,7 +19,7 @@ namespace CazareCamine
             string s1 = pr1.Informatii();
             Console.WriteLine(s1);
 
-
+            // gh
             var st1 = new Studenti("Alexandru","Mitiu",39,"Roman","4344545b",8.8,"FEA");
             string s2 = st1.Informatii();
             Console.WriteLine(s2);
