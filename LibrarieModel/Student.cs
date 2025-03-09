@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 namespace CazareCamine
 {
-    public class Studenti : Persoana
+    public class Student : Persoana
     {
         public string Nr_matricol { get; set; }
         public double Medie { get; set; }
         public string Facultate { get; set; }
-        public Studenti(string nume,string prenume,int varsta,string nationalitate,string nr_matricol,double media,string facultate) : base(nume,prenume,varsta,nationalitate)
+        public Student(string nume,string prenume,string data_n,string nationalitate,string nr_matricol,double media,string facultate) : base(nume,prenume,data_n,nationalitate)
         {
             this.Nr_matricol = nr_matricol;
             this.Medie = media;
@@ -18,7 +18,7 @@ namespace CazareCamine
             
 
         }
-        public Studenti():base()
+        public Student():base()
         {
           this.Nr_matricol=string.Empty;
           this.Medie = 0;

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B22FC8B-77ED-4AFE-96F4-DAD4F9D5F81E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>CazareCamine</RootNamespace>
-    <AssemblyName>CazareCamine</AssemblyName>
+    <ProjectGuid>{5343B328-3819-4031-86A9-8B8D9F844509}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LibrarieModel</RootNamespace>
+    <AssemblyName>LibrarieModel</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,22 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Camin.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Persoana.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\LibrarieModel\LibrarieModel.csproj">
-      <Project>{5343b328-3819-4031-86a9-8b8d9f844509}</Project>
-      <Name>LibrarieModel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StocareDateNiveluri\StocareDateNiveluri.csproj">
-      <Project>{b0950216-a8d2-442a-a9c6-37b4a3dcc1e5}</Project>
-      <Name>StocareDateNiveluri</Name>
-    </ProjectReference>
+    <Compile Include="Student.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

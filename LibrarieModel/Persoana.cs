@@ -11,27 +11,27 @@ namespace CazareCamine
     {
         public string Nume { get; set; }
         public string Prenume { get; set; }
-        public int Varsta { get; set; }
+        public string Data_nasterii { get; set; }
         public string Nationalitate { get; set; }
-        public Persoana(string nume, string prenume, int varsta, string nationalitate)
+        public Persoana(string nume, string prenume, string data_n, string nationalitate)
         {
             Nume = nume;
             Prenume = prenume;
-            Varsta = varsta;
+            Data_nasterii = data_n;
             Nationalitate = nationalitate;
         }
         public Persoana()
         {
             Nume=string.Empty;
             Prenume=string.Empty ;
-            Varsta = 0;
+            Data_nasterii= string.Empty;
             Nationalitate=string.Empty ;
         }
 
         
         public virtual string Informatii()
         {
-            return $"Nume:{Nume},Prenume:{Prenume},Varsta:{Varsta},Nationalitate:{Nationalitate}";
+            return $"Nume:{Nume},Prenume:{Prenume},Varsta:{Data_nasterii},Nationalitate:{Nationalitate}";
         }
 
 
