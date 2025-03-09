@@ -19,12 +19,13 @@ namespace CazareCamine
             string optiune;
             do
             {
-                Console.WriteLine("C. Citorea student de la tastatura");
+                Console.WriteLine("C. Citirea studentului de la tastatura");
                 Console.WriteLine("A. Afisare student");
-                Console.WriteLine("S .Salvare student in vector");
+                Console.WriteLine("S. Salvare student in vector");
                 Console.WriteLine("M. Afisare studentii salvati");
+                Console.WriteLine("K. Cautare studenati");
                 Console.WriteLine("X. Inchidere program");
-                Console.WriteLine("Alegeti o optiune");
+                Console.WriteLine("Alegeti o opțiune");
                 optiune = Console.ReadLine();
                 Console.Clear();
                 switch (optiune.ToUpper())
@@ -33,15 +34,67 @@ namespace CazareCamine
                         studentNou = CitireStudentTastatura();
                         break;
                     case "A":
-                        AfisareStudent(studentNou);
+                        string infoStudent = AfisareStudent(studentNou);
+                        Console.WriteLine(infoStudent);
                         break;
                     case "S":
-
                         adminStude.AdaugareStudent(studentNou);
-                        Console.WriteLine($"Studentul cu numarul matricolului:{studentNou.Nr_matricol} a fost adaugat cu succes!");
+                        Console.WriteLine($"Studentul cu numarul matricolului: {studentNou.Nr_matricol} a fost adaugat cu succes!");
                         break;
                     case "M":
                         AfisareToateStudentii(adminStude);
+                        break;
+                    case "K":
+                        string optiune_2;
+                        do
+                        {
+                            Console.WriteLine("1. Dupa Nume");
+                            Console.WriteLine("2. Dupa Numar Matricol");
+                            Console.WriteLine("X. Iesire din căutare");
+                            optiune_2 = Console.ReadLine();
+                            Console.Clear();
+                            switch (optiune_2.ToUpper())
+                            {
+                                case "1":
+                                    Console.Write("Introduceti numele cautat: ");
+                                    string numeC=Console.ReadLine();
+                                    Console.Write("Introduceti prenumele cautat: ");
+                                    string prenumeC = Console.ReadLine();
+
+                                    Student studentGasitNume = adminStude.CautaredupanNume(numeC,prenumeC);
+                                    if (studentGasitNume != null)
+                                    {
+                                        string infoStudentGasitNume = AfisareStudent(studentGasitNume);
+                                        Console.WriteLine(infoStudentGasitNume);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Studentul cu numele {0} {1} nu a fost gasit.",numeC,prenumeC );
+                                    }
+                                    break;
+                                case "2":
+                                    Console.Write("Introduceti numarul matricol: ");
+                                    string nrMatricolCautat = Console.ReadLine();
+                                    Student studentGasitMatricol = adminStude.CautaredupanrMatricol(nrMatricolCautat);
+                                    if (studentGasitMatricol != null)
+                                    {
+                                        string infoStudentGasitMatricol = AfisareStudent(studentGasitMatricol);
+                                        Console.WriteLine(infoStudentGasitMatricol);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Studentul cu numărul matricol {0} nu a fost gasit.", nrMatricolCautat);
+                                    }
+                                    break;
+                                
+                                case "X":
+                                    Console.WriteLine("Iesire din meniul de cautare.");
+                                    break;
+                                default:
+                                    Console.WriteLine("Optiune invalida.");
+                                    break;
+                            }
+                        } while (optiune_2.ToUpper() != "X");
                         break;
                     default:
                         Console.WriteLine("Optiune inexistenta");
@@ -49,11 +102,9 @@ namespace CazareCamine
                 }
             } while (optiune.ToUpper() != "X");
 
-
             Console.ReadKey();
-
-
         }
+
         public static Student CitireStudentTastatura()
         {
             Console.Write("Introduce-ti  numele:");
@@ -81,7 +132,7 @@ namespace CazareCamine
             Student student = new Student(nume, prenume, data_n, nationalitate, nr_mat, media, facultatea);
             return student;
         }
-        public static void AfisareStudent(Student student)
+        public static string AfisareStudent(Student student)
         {
             string informatii = string.Format("Studentul cu numarul matricolului {0} are numele:{1} {2} \n"
                                                 + "Media:{3} \n"
@@ -95,7 +146,7 @@ namespace CazareCamine
                                                 student.Data_nasterii ?? "NECUNOSCUT",
                                                 student.Nationalitate ?? "NECUNOSCUT",
                                                 student.Facultate ?? "NECUNOSCUT");
-            Console.WriteLine(informatii);
+            return informatii;
 
 
 
@@ -106,14 +157,15 @@ namespace CazareCamine
             Student[] studenti = adminStude.GetStudents(out nrStudenti);
             if (nrStudenti == 0)
             {
-                Console.WriteLine("Nu sunt studenți salvați.");
+                Console.WriteLine("Nu sunt studenti salvati.");
             }
             else
             {
-                Console.WriteLine("\nStudentii salvați:");
+                Console.WriteLine("\nStudentii salvati:");
                 for (int i = 0; i < nrStudenti; i++)
                 {
-                    AfisareStudent(studenti[i]);
+                    string infoTatiStd=AfisareStudent(studenti[i]);
+                    Console.WriteLine(infoTatiStd);
                 }
             }
         }
