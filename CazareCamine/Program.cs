@@ -25,7 +25,7 @@ namespace CazareCamine
                 Console.WriteLine("M. Afisare studentii salvati");
                 Console.WriteLine("K. Cautare studenati");
                 Console.WriteLine("X. Inchidere program");
-                Console.WriteLine("Alegeti o opțiune");
+                Console.WriteLine("Alegeti o optiune");
                 optiune = Console.ReadLine();
                 Console.Clear();
                 switch (optiune.ToUpper())
