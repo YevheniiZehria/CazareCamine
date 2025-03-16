@@ -1,5 +1,6 @@
 ﻿using StocareDateNiveluri;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -12,8 +13,10 @@ namespace CazareCamine
     {
         static void Main(string[] args)
         {
-            AdministrareStudenti adminStude = new AdministrareStudenti();
+            ///AdministrareStudenti adminStude = new AdministrareStudenti();
             Student studentNou = new Student();
+            string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
+            AdministrareStudenti_FisierText adminStudenti = new AdministrareStudenti_FisierText(numeFisier);
 
 
             string optiune;
@@ -21,9 +24,10 @@ namespace CazareCamine
             {
                 Console.WriteLine("C. Citirea studentului de la tastatura");
                 Console.WriteLine("A. Afisare student");
-                Console.WriteLine("S. Salvare student in vector");
+                Console.WriteLine("S. Salvare student in FISIER");
                 Console.WriteLine("M. Afisare studentii salvati");
                 Console.WriteLine("K. Cautare studenati");
+                Console.WriteLine("O. Sortare studenti în ordine alfabetica");
                 Console.WriteLine("X. Inchidere program");
                 Console.WriteLine("Alegeti o optiune");
                 optiune = Console.ReadLine();
@@ -38,11 +42,14 @@ namespace CazareCamine
                         Console.WriteLine(infoStudent);
                         break;
                     case "S":
-                        adminStude.AdaugareStudent(studentNou);
+                        adminStudenti.AddStudent(studentNou);
                         Console.WriteLine($"Studentul cu numarul matricolului: {studentNou.Nr_matricol} a fost adaugat cu succes!");
                         break;
                     case "M":
-                        AfisareToateStudentii(adminStude);
+                        AfisareToateStudentii(adminStudenti);
+                        break;
+                    case "O":
+                        AfisareStudentiSortatiAlfabetic(adminStudenti);
                         break;
                     case "K":
                         string optiune_2;
@@ -61,7 +68,7 @@ namespace CazareCamine
                                     Console.Write("Introduceti prenumele cautat: ");
                                     string prenumeC = Console.ReadLine();
 
-                                    Student studentGasitNume = adminStude.CautaredupanNume(numeC,prenumeC);
+                                    Student studentGasitNume = adminStudenti.CautaredupanNume(numeC,prenumeC);
                                     if (studentGasitNume != null)
                                     {
                                         string infoStudentGasitNume = AfisareStudent(studentGasitNume);
@@ -75,7 +82,7 @@ namespace CazareCamine
                                 case "2":
                                     Console.Write("Introduceti numarul matricol: ");
                                     string nrMatricolCautat = Console.ReadLine();
-                                    Student studentGasitMatricol = adminStude.CautaredupanrMatricol(nrMatricolCautat);
+                                    Student studentGasitMatricol = adminStudenti.CautaredupanrMatricol(nrMatricolCautat);
                                     if (studentGasitMatricol != null)
                                     {
                                         string infoStudentGasitMatricol = AfisareStudent(studentGasitMatricol);
@@ -87,6 +94,7 @@ namespace CazareCamine
                                     }
                                     break;
                                 
+
                                 case "X":
                                     Console.WriteLine("Iesire din meniul de cautare.");
                                     break;
@@ -151,10 +159,10 @@ namespace CazareCamine
 
 
         }
-        public static void AfisareToateStudentii(AdministrareStudenti adminStude)
+        public static void AfisareToateStudentii(AdministrareStudenti_FisierText adminStudenti)
         {
             int nrStudenti;
-            Student[] studenti = adminStude.GetStudents(out nrStudenti);
+            Student[] studenti = adminStudenti.GetStudenti(out nrStudenti);
             if (nrStudenti == 0)
             {
                 Console.WriteLine("Nu sunt studenti salvati.");
@@ -167,6 +175,30 @@ namespace CazareCamine
                     string infoTatiStd=AfisareStudent(studenti[i]);
                     Console.WriteLine(infoTatiStd);
                 }
+            }
+        }
+        public static void AfisareStudentiSortatiAlfabetic(AdministrareStudenti_FisierText adminStudenti)
+        {
+            int nrStudenti;
+            Student[] studenti = adminStudenti.GetStudenti(out nrStudenti);
+
+            if (nrStudenti == 0)
+            {
+                Console.WriteLine("Nu sunt studenți salvati.");
+                return;
+            }
+
+            // Sortare alfabetică după Nume și Prenume
+            Array.Sort(studenti, 0, nrStudenti, Comparer<Student>.Create((s1, s2) =>
+            {
+                int comparatieNume = string.Compare(s1.Nume, s2.Nume, StringComparison.OrdinalIgnoreCase);
+                return (comparatieNume == 0) ? string.Compare(s1.Prenume, s2.Prenume, StringComparison.OrdinalIgnoreCase) : comparatieNume;
+            }));
+
+            Console.WriteLine("\n Studenți sortati alfabetic:");
+            for (int i = 0; i < nrStudenti; i++)
+            {
+                Console.WriteLine(AfisareStudent(studenti[i]));
             }
         }
     }

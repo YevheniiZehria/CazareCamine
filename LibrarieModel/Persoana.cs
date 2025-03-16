@@ -13,6 +13,9 @@ namespace CazareCamine
         public string Prenume { get; set; }
         public string Data_nasterii { get; set; }
         public string Nationalitate { get; set; }
+        
+
+
         public Persoana(string nume, string prenume, string data_n, string nationalitate)
         {
             Nume = nume;
