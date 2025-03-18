@@ -184,7 +184,7 @@ namespace CazareCamine
 
             if (nrStudenti == 0)
             {
-                Console.WriteLine("Nu sunt studenți salvati.");
+                Console.WriteLine("Nu sunt studenti salvati.");
                 return;
             }
 
@@ -195,7 +195,7 @@ namespace CazareCamine
                 return (comparatieNume == 0) ? string.Compare(s1.Prenume, s2.Prenume, StringComparison.OrdinalIgnoreCase) : comparatieNume;
             }));
 
-            Console.WriteLine("\n Studenți sortati alfabetic:");
+            Console.WriteLine("\n Studenti sortati alfabetic:");
             for (int i = 0; i < nrStudenti; i++)
             {
                 Console.WriteLine(AfisareStudent(studenti[i]));
