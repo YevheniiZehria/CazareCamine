@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarieModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace CazareCamine
         public string Nr_matricol { get; set; }
         public double Medie { get; set; }
         public string Facultate { get; set; }
+        public Camin CaminStudent { get; set; }
         private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const int NUME = 0;
         private const int PRENUME = 1;
@@ -18,12 +20,14 @@ namespace CazareCamine
         private const int NR_MATRICOL = 4;
         private const int MEDIA = 5;
         private const int FACULTATEA= 6;
+        private const int AlegeCamin= 7;
 
-        public Student(string nume,string prenume,string data_n,string nationalitate,string nr_matricol,double media,string facultate) : base(nume,prenume,data_n,nationalitate)
+        public Student(string nume,string prenume,string data_n,string nationalitate,string nr_matricol,double media,string facultate,Camin camin) : base(nume,prenume,data_n,nationalitate)
         {
             this.Nr_matricol = nr_matricol;
             this.Medie = media;
             this.Facultate = facultate;
+            this.CaminStudent = camin;
             
 
         }
@@ -37,6 +41,7 @@ namespace CazareCamine
             this.Nr_matricol = dateFisier[NR_MATRICOL];
             this.Medie = double.Parse(dateFisier[MEDIA]);
             this.Facultate = dateFisier[FACULTATEA];
+            this.CaminStudent=(Camin)Enum.Parse(typeof(Camin),dateFisier[AlegeCamin]);   
 
 
 
@@ -57,7 +62,7 @@ namespace CazareCamine
         }
         public string ConversieLaSir_PentruFisier()
         {
-            string obiectStudentPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}",
+            string obiectStudentPentruFisier = string.Format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}",
                 SEPARATOR_PRINCIPAL_FISIER,
 
                 (Nume ?? " NECUNOSCUT "),
@@ -66,7 +71,8 @@ namespace CazareCamine
                 (Nationalitate ?? "NECUNOSCUT"),
                 (Nr_matricol ?? "NECUNOSCUT"),
                 (Medie.ToString()),
-                (Facultate ?? "NECUNOSCUTA"));
+                (Facultate ?? "NECUNOSCUTA"),
+                CaminStudent.ToString());
             return obiectStudentPentruFisier;
                 
 
