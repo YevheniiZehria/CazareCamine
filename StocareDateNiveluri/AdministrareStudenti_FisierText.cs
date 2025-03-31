@@ -51,7 +51,7 @@ namespace StocareDateNiveluri
                     studenti[nrStudenti++] = new Student(linieFisier);
                 }
             }
-
+            Array.Resize(ref studenti,nrStudenti);
             return studenti;
         }
         public Student CautaredupanrMatricol(string Nr_mat)

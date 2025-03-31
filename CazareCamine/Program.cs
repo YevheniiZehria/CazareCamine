@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using LibrarieModel;
+using System.IO;
 
 
 namespace CazareCamine
@@ -17,9 +18,16 @@ namespace CazareCamine
         {
             AdministrareStudenti adminStude = new AdministrareStudenti();
 
-            Student studentNou = new Student();
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
-            AdministrareStudenti_FisierText adminStudenti = new AdministrareStudenti_FisierText(numeFisier);
+            string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            // setare locatie fisier in directorul corespunzator solutiei
+            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
+            string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
+
+            AdministrareStudenti_FisierText adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
+
+            Student studentNou = new Student();
+            int nrStudenti = 0;
 
 
             string optiune;
@@ -259,7 +267,7 @@ namespace CazareCamine
                 Console.WriteLine($"- {camin}");
             }
 
-            Console.Write("Introduceți numele căminului: ");
+            Console.Write("Introduceti numele caminului: ");
             string caminInput = Console.ReadLine();
 
             Camin caminStudent;

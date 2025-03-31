@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StocareDateNiveluri", "Stoc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrarieModel", "LibrarieModel\LibrarieModel.csproj", "{5343B328-3819-4031-86A9-8B8D9F844509}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CazareCamine_WindowsForm", "CazareCamine_WindowsForm\CazareCamine_WindowsForm.csproj", "{C88EFC27-C523-4947-BC79-EE79C80FFE1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5343B328-3819-4031-86A9-8B8D9F844509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5343B328-3819-4031-86A9-8B8D9F844509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5343B328-3819-4031-86A9-8B8D9F844509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C88EFC27-C523-4947-BC79-EE79C80FFE1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C88EFC27-C523-4947-BC79-EE79C80FFE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C88EFC27-C523-4947-BC79-EE79C80FFE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C88EFC27-C523-4947-BC79-EE79C80FFE1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
