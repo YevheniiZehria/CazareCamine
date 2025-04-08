@@ -1,7 +1,5 @@
 ZEHRIA;YEVHENII;21.09.2006;UKR;34523F;9;FIMAR;C1
 vladick;shorodock;21.09.2006;ukr;453436g;10;fimar;C6
-Jenia;Zehria;21.09.2006;ukt;454545f;9;FIMAR;C2
+Jenia;Zehria;21.09.2006;ukr;454785f;9;FIMAR;C2
 Artem;Kyrchu;21.09.2006;ukr;454545f;9;fiesc;C4
-cvdv;cfgf;fdfdf;dfdf;dfdfd;9;dfdf;C2
-Vladick;Ghei;21.09.2006;Nigherean;45000;4.5;FIMOZ;C7
-fdf;fddf;21.09.2006;fdfdf;45000;9;fdfdf;C7
+Ion;Popescu;22.02.2004;MD;746434F;8;FEA;C1

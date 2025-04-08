@@ -45,14 +45,7 @@ namespace CazareCamine_WindowsForm
         private Label EroareFacultate;
         private Label EroareCamin;
 
-        private Label[] lblsNume;
-        private Label[] lblsPrenume;
-        private Label[] lblsData;
-        private Label[] lblsNationalitate;
-        private Label[] lblsNr_matricol;
-        private Label[] lblsMedia;
-        private Label[] lblsFacultate;
-        private Label[] lblsCamin;
+        private Label[,] lblsStudenti; // Tablou bidimensional pentru etichetele studenților
 
         private const int LATIME_CONTROL = 100;
         private const int DIMENSIUNE_PAS_Y = 30;
@@ -247,7 +240,7 @@ namespace CazareCamine_WindowsForm
             EroareCamin.AutoSize = true;
             this.Controls.Add(EroareCamin);
 
-            // Butoane
+           
             Button btnAdauga = new Button();
             btnAdauga.Text = "Adaugă Student";
             btnAdauga.Left = 270;
@@ -268,7 +261,7 @@ namespace CazareCamine_WindowsForm
 
         private void OnButtonClicked(object sender, EventArgs e)
         {
-            // Preia datele din TextBox-uri
+           
             string nume = txtNume.Text.Trim();
             string prenume = txtPrenume.Text.Trim();
             string data = txtData.Text.Trim();
@@ -288,30 +281,29 @@ namespace CazareCamine_WindowsForm
             EroareFacultate.Text = "";
             EroareCamin.Text = "";
 
-            // Prevalidare
+         
             bool hasPrevalidationErrors = Prevalidare(nume, prenume, nationalitate, facultate, data, nrMatricol, mediaText, caminText);
             
             if (hasPrevalidationErrors)
             {
-                return; // Ieși din metodă dacă există erori de prevalidare
+                return;
             }
 
-            // Validare
+           
             bool hasValidationErrors = Validare(nume, prenume, mediaText, nrMatricol, data, caminText);
             
             if (hasValidationErrors)
             {
-                return; // Ieși din metodă dacă există erori de validare
+                return; 
             }
 
-            // Creează un obiect Student
             Student student = new Student(nume, prenume, data, nationalitate, nrMatricol, double.Parse(mediaText), facultate, (Camin)Enum.Parse(typeof(Camin), caminText));
 
-            // Adaugă studentul în fișier
+            
             adminStudenti.AddStudent(student);
             MessageBox.Show("Studentul a fost adăugat cu succes!");
 
-            // Resetează TextBox-urile după adăugare
+            
             txtNume.Clear();
             txtPrenume.Clear();
             txtData.Clear();
@@ -381,42 +373,42 @@ namespace CazareCamine_WindowsForm
         {
             bool hasError = false;
 
-            // Validare nume
+           
             if (nume.Length > NR_MAX_CARACTERE)
             {
                 EroareNume.Text = $"Numele nu poate depăși {NR_MAX_CARACTERE} caractere!";
                 hasError = true;
             }
 
-            // Validare prenume
+          
             if (prenume.Length > NR_MAX_CARACTERE)
             {
                 EroarePrenume.Text = $"Prenumele nu poate depăși {NR_MAX_CARACTERE} caractere!";
                 hasError = true;
             }
 
-            // Validare număr matricol
+            
             if (nrMatricol.Length < 5 || nrMatricol.Length > 10)
             {
                 EroareNr_matricol.Text = "Numărul matricol trebuie să aibă între 5 și 10 caractere!";
                 hasError = true;
             }
 
-            // Validare dată
+          
             if (!DateTime.TryParseExact(data, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out _))
             {
                 EroareData.Text = "Data trebuie să fie în formatul dd.mm.yyyy!";
                 hasError = true;
             }
 
-            // Validare media
+           
             if (!string.IsNullOrWhiteSpace(mediaText) && !double.TryParse(mediaText, out _))
             {
                 EroareMedia.Text = "Media trebuie să fie un număr valid!";
                 hasError = true;
             }
 
-            // Validare camin
+            
             if (!Enum.TryParse<Camin>(camin, out _))
             {
                 EroareCamin.Text = "Caminul trebuie să fie o valoare validă!";
@@ -428,7 +420,7 @@ namespace CazareCamine_WindowsForm
 
         private void OnButtonClicked_Restet(object sender, EventArgs e)
         {
-            // Resetează TextBox-urile
+           
             txtNume.Clear();
             txtPrenume.Clear();
             txtData.Clear();
@@ -438,7 +430,7 @@ namespace CazareCamine_WindowsForm
             txtFacultate.Clear();
             txtCamin.Clear();
 
-            // Resetare mesaje de eroare
+            
             EroareNume.Text = "";
             EroarePrenume.Text = "";
             EroareData.Text = "";
@@ -448,7 +440,7 @@ namespace CazareCamine_WindowsForm
             EroareFacultate.Text = "";
             EroareCamin.Text = "";
 
-            // Afișează toți studenții din fișier
+           
             AfiseazaStudenti();
         }
 
@@ -459,7 +451,7 @@ namespace CazareCamine_WindowsForm
 
         private void AfiseazaStudenti()
         {
-            // Șterge toate controalele existente, mai puțin cele inițiale
+            
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 if (this.Controls[i] is Label && 
@@ -492,137 +484,87 @@ namespace CazareCamine_WindowsForm
                 return;
             }
 
+            // Inițializare tablou bidimensional
+            lblsStudenti = new Label[nrStudenti, 8]; // 8 coloane pentru Nume, Prenume, Data, Naționalitate, Nr Matricol, Media, Facultate, Cămin
+
             // Adăugare headers
-            Label headerNume = new Label();
-            headerNume.Text = "Nume";
-            headerNume.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerNume.Left = DIMENSIUNE_PAS_X;
-            headerNume.Top = 220;
-            headerNume.Width = LATIME_CONTROL;
-            this.Controls.Add(headerNume);
-
-            Label headerPrenume = new Label();
-            headerPrenume.Text = "Prenume";
-            headerPrenume.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerPrenume.Left = 2 * DIMENSIUNE_PAS_X;
-            headerPrenume.Top = 220;
-            headerPrenume.Width = LATIME_CONTROL;
-            this.Controls.Add(headerPrenume);
-
-            Label headerData = new Label();
-            headerData.Text = "Data";
-            headerData.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerData.Left = 3 * DIMENSIUNE_PAS_X;
-            headerData.Top = 220;
-            headerData.Width = LATIME_CONTROL;
-            this.Controls.Add(headerData);
-
-            Label headerNationalitate = new Label();
-            headerNationalitate.Text = "Naționalitate";
-            headerNationalitate.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerNationalitate.Left = 4 * DIMENSIUNE_PAS_X;
-            headerNationalitate.Top = 220;
-            headerNationalitate.Width = LATIME_CONTROL;
-            this.Controls.Add(headerNationalitate);
-
-            Label headerNrMatricol = new Label();
-            headerNrMatricol.Text = "Nr Matricol";
-            headerNrMatricol.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerNrMatricol.Left = 5 * DIMENSIUNE_PAS_X;
-            headerNrMatricol.Top = 220;
-            headerNrMatricol.Width = LATIME_CONTROL;
-            this.Controls.Add(headerNrMatricol);
-
-            Label headerMedia = new Label();
-            headerMedia.Text = "Media";
-            headerMedia.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerMedia.Left = 6 * DIMENSIUNE_PAS_X;
-            headerMedia.Top = 220;
-            headerMedia.Width = LATIME_CONTROL;
-            this.Controls.Add(headerMedia);
-
-            Label headerFacultate = new Label();
-            headerFacultate.Text = "Facultate";
-            headerFacultate.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerFacultate.Left = 7 * DIMENSIUNE_PAS_X;
-            headerFacultate.Top = 220;
-            headerFacultate.Width = LATIME_CONTROL;
-            this.Controls.Add(headerFacultate);
-
-            Label headerCamin = new Label();
-            headerCamin.Text = "Cămin";
-            headerCamin.Font = new Font("Arial", 10, FontStyle.Bold);
-            headerCamin.Left = 8 * DIMENSIUNE_PAS_X;
-            headerCamin.Top = 220;
-            headerCamin.Width = LATIME_CONTROL;
-            this.Controls.Add(headerCamin);
-
-            lblsNume = new Label[nrStudenti];
-            lblsPrenume = new Label[nrStudenti];
-            lblsData = new Label[nrStudenti];
-            lblsNationalitate = new Label[nrStudenti];
-            lblsNr_matricol = new Label[nrStudenti];
-            lblsMedia = new Label[nrStudenti];
-            lblsFacultate = new Label[nrStudenti];
-            lblsCamin = new Label[nrStudenti];
+            string[] headers = { "Nume", "Prenume", "Data", "Naționalitate", "Nr Matricol", "Media", "Facultate", "Cămin" };
+            for (int i = 0; i < headers.Length; i++)
+            {
+                Label header = new Label();
+                header.Text = headers[i];
+                header.Font = new Font("Arial", 10, FontStyle.Bold);
+                header.Left = i * DIMENSIUNE_PAS_X;
+                header.Top = 220;
+                header.Width = LATIME_CONTROL;
+                this.Controls.Add(header);
+            }
 
             for (int i = 0; i < nrStudenti; i++)
             {
-                lblsNume[i] = new Label();
-                lblsNume[i].Width = LATIME_CONTROL;
-                lblsNume[i].Text = studenti[i].Nume;
-                lblsNume[i].Left = DIMENSIUNE_PAS_X;
-                lblsNume[i].Top = 250+((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsNume[i]);
+                // Nume
+                lblsStudenti[i, 0] = new Label();
+                lblsStudenti[i, 0].Width = LATIME_CONTROL;
+                lblsStudenti[i, 0].Text = studenti[i].Nume;
+                lblsStudenti[i, 0].Left = DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 0].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 0]);
 
-                lblsPrenume[i] = new Label();
-                lblsPrenume[i].Width = LATIME_CONTROL;
-                lblsPrenume[i].Text = studenti[i].Prenume;
-                lblsPrenume[i].Left = 2 * DIMENSIUNE_PAS_X;
-                lblsPrenume[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsPrenume[i]);
+                // Prenume
+                lblsStudenti[i, 1] = new Label();
+                lblsStudenti[i, 1].Width = LATIME_CONTROL;
+                lblsStudenti[i, 1].Text = studenti[i].Prenume;
+                lblsStudenti[i, 1].Left = 2 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 1].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 1]);
 
-                lblsData[i] = new Label();
-                lblsData[i].Width = LATIME_CONTROL;
-                lblsData[i].Text = studenti[i].Data_nasterii;
-                lblsData[i].Left = 3 * DIMENSIUNE_PAS_X;
-                lblsData[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsData[i]);
+                // Data
+                lblsStudenti[i, 2] = new Label();
+                lblsStudenti[i, 2].Width = LATIME_CONTROL;
+                lblsStudenti[i, 2].Text = studenti[i].Data_nasterii;
+                lblsStudenti[i, 2].Left = 3 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 2].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 2]);
 
-                lblsNationalitate[i] = new Label();
-                lblsNationalitate[i].Width = LATIME_CONTROL;
-                lblsNationalitate[i].Text = studenti[i].Nationalitate;
-                lblsNationalitate[i].Left = 4 * DIMENSIUNE_PAS_X;
-                lblsNationalitate[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsNationalitate[i]);
+                // Naționalitate
+                lblsStudenti[i, 3] = new Label();
+                lblsStudenti[i, 3].Width = LATIME_CONTROL;
+                lblsStudenti[i, 3].Text = studenti[i].Nationalitate;
+                lblsStudenti[i, 3].Left = 4 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 3].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 3]);
 
-                lblsNr_matricol[i] = new Label();
-                lblsNr_matricol[i].Width = LATIME_CONTROL;
-                lblsNr_matricol[i].Text = studenti[i].Nr_matricol;
-                lblsNr_matricol[i].Left = 5 * DIMENSIUNE_PAS_X;
-                lblsNr_matricol[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsNr_matricol[i]);
+                // Nr Matricol
+                lblsStudenti[i, 4] = new Label();
+                lblsStudenti[i, 4].Width = LATIME_CONTROL;
+                lblsStudenti[i, 4].Text = studenti[i].Nr_matricol;
+                lblsStudenti[i, 4].Left = 5 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 4].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 4]);
 
-                lblsMedia[i] = new Label();
-                lblsMedia[i].Width = LATIME_CONTROL;
-                lblsMedia[i].Text = studenti[i].Medie.ToString();
-                lblsMedia[i].Left = 6 * DIMENSIUNE_PAS_X;
-                lblsMedia[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsMedia[i]);
+                // Media
+                lblsStudenti[i, 5] = new Label();
+                lblsStudenti[i, 5].Width = LATIME_CONTROL;
+                lblsStudenti[i, 5].Text = studenti[i].Medie.ToString();
+                lblsStudenti[i, 5].Left = 6 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 5].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 5]);
 
-                lblsFacultate[i] = new Label();
-                lblsFacultate[i].Width = LATIME_CONTROL;
-                lblsFacultate[i].Text = studenti[i].Facultate;
-                lblsFacultate[i].Left = 7 * DIMENSIUNE_PAS_X;
-                lblsFacultate[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsFacultate[i]);
+                // Facultate
+                lblsStudenti[i, 6] = new Label();
+                lblsStudenti[i, 6].Width = LATIME_CONTROL;
+                lblsStudenti[i, 6].Text = studenti[i].Facultate;
+                lblsStudenti[i, 6].Left = 7 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 6].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 6]);
 
-                lblsCamin[i] = new Label();
-                lblsCamin[i].Width = LATIME_CONTROL;
-                lblsCamin[i].Text = studenti[i].CaminStudent.ToString();
-                lblsCamin[i].Left = 8 * DIMENSIUNE_PAS_X;
-                lblsCamin[i].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
-                this.Controls.Add(lblsCamin[i]);
+                // Cămin
+                lblsStudenti[i, 7] = new Label();
+                lblsStudenti[i, 7].Width = LATIME_CONTROL;
+                lblsStudenti[i, 7].Text = studenti[i].CaminStudent.ToString();
+                lblsStudenti[i, 7].Left = 8 * DIMENSIUNE_PAS_X;
+                lblsStudenti[i, 7].Top = 250 + ((i + 1) * DIMENSIUNE_PAS_Y);
+                this.Controls.Add(lblsStudenti[i, 7]);
             }
         }
     }
