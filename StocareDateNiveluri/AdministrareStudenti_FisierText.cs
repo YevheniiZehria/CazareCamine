@@ -51,7 +51,7 @@ namespace StocareDateNiveluri
                     studenti[nrStudenti++] = new Student(linieFisier);
                 }
             }
-            Array.Resize(ref studenti,nrStudenti);
+            Array.Resize(ref studenti, nrStudenti);
             return studenti;
         }
         public Student CautaredupanrMatricol(string Nr_mat)
@@ -83,5 +83,47 @@ namespace StocareDateNiveluri
             }
             return null;
         }
+        public Student GetStudent_Nume_Prenume(string nume,string prenume)
+        {
+            // instructiunea 'using' va apela streamReader.Close()
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string linieFisier;
+
+                // citeste cate o linie si creaza un obiect de tip Student
+                // pe baza datelor din linia citita
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    Student student = new Student(linieFisier);
+                    if (student.Nume == nume && student.Prenume == prenume)
+                        return student;
+                }
+            }
+
+
+            return null;
+        }
+        
+        public Student GetStudent_NrMatricol(string nrMatricol)
+        {
+            // instructiunea 'using' va apela streamReader.Close()
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string linieFisier;
+
+                // citeste cate o linie si creaza un obiect de tip Student
+                // pe baza datelor din linia citita
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    Student student = new Student(linieFisier);
+                    if (student.Nr_matricol == nrMatricol)
+                        return student;
+                }
+            }
+
+            return null;
+        }
+      
     }
 }
+
