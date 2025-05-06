@@ -55,85 +55,84 @@
             this.btnAdauga = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCauatare = new System.Windows.Forms.Button();
-            this.SuspendLayout();
             // 
             // lblNume
             // 
             this.lblNume.AutoSize = true;
-            this.lblNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblNume.Location = new System.Drawing.Point(106, 74);
             this.lblNume.Name = "lblNume";
-            this.lblNume.Size = new System.Drawing.Size(84, 29);
+            this.lblNume.Size = new System.Drawing.Size(84, 25);
             this.lblNume.TabIndex = 0;
             this.lblNume.Text = "Nume:";
             // 
             // lblPrenume
             // 
             this.lblPrenume.AutoSize = true;
-            this.lblPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblPrenume.Location = new System.Drawing.Point(106, 146);
             this.lblPrenume.Name = "lblPrenume";
-            this.lblPrenume.Size = new System.Drawing.Size(117, 29);
+            this.lblPrenume.Size = new System.Drawing.Size(117, 25);
             this.lblPrenume.TabIndex = 1;
             this.lblPrenume.Text = "Prenume:";
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblData.Location = new System.Drawing.Point(670, 70);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(157, 29);
+            this.lblData.Size = new System.Drawing.Size(157, 25);
             this.lblData.TabIndex = 2;
             this.lblData.Text = "Data Nasterii:";
             // 
             // lblNationalitate
             // 
             this.lblNationalitate.AutoSize = true;
-            this.lblNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblNationalitate.Location = new System.Drawing.Point(106, 218);
             this.lblNationalitate.Name = "lblNationalitate";
-            this.lblNationalitate.Size = new System.Drawing.Size(153, 29);
+            this.lblNationalitate.Size = new System.Drawing.Size(153, 25);
             this.lblNationalitate.TabIndex = 3;
             this.lblNationalitate.Text = "Nationalitate:";
             // 
             // lblNr_matricol
             // 
             this.lblNr_matricol.AutoSize = true;
-            this.lblNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblNr_matricol.Location = new System.Drawing.Point(670, 138);
             this.lblNr_matricol.Name = "lblNr_matricol";
-            this.lblNr_matricol.Size = new System.Drawing.Size(201, 29);
+            this.lblNr_matricol.Size = new System.Drawing.Size(201, 25);
             this.lblNr_matricol.TabIndex = 4;
             this.lblNr_matricol.Text = "Numarul Matricol:";
             // 
             // lblMedia
             // 
             this.lblMedia.AutoSize = true;
-            this.lblMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblMedia.Location = new System.Drawing.Point(670, 218);
             this.lblMedia.Name = "lblMedia";
-            this.lblMedia.Size = new System.Drawing.Size(86, 29);
+            this.lblMedia.Size = new System.Drawing.Size(86, 25);
             this.lblMedia.TabIndex = 5;
             this.lblMedia.Text = "Media:";
             // 
             // lblFacultate
             // 
             this.lblFacultate.AutoSize = true;
-            this.lblFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblFacultate.Location = new System.Drawing.Point(106, 295);
             this.lblFacultate.Name = "lblFacultate";
-            this.lblFacultate.Size = new System.Drawing.Size(117, 29);
+            this.lblFacultate.Size = new System.Drawing.Size(117, 25);
             this.lblFacultate.TabIndex = 6;
             this.lblFacultate.Text = "Facultate:";
             // 
             // lblCamin
             // 
             this.lblCamin.AutoSize = true;
-            this.lblCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.lblCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCamin.Location = new System.Drawing.Point(668, 288);
             this.lblCamin.Name = "lblCamin";
-            this.lblCamin.Size = new System.Drawing.Size(88, 29);
+            this.lblCamin.Size = new System.Drawing.Size(88, 25);
             this.lblCamin.TabIndex = 7;
             this.lblCamin.Text = "Camin:";
             // 
@@ -144,6 +143,7 @@
             this.txtNume.Name = "txtNume";
             this.txtNume.Size = new System.Drawing.Size(155, 29);
             this.txtNume.TabIndex = 8;
+            this.txtNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtPrenume
             // 
@@ -152,6 +152,7 @@
             this.txtPrenume.Name = "txtPrenume";
             this.txtPrenume.Size = new System.Drawing.Size(155, 29);
             this.txtPrenume.TabIndex = 9;
+            this.txtPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtNationalitate
             // 
@@ -160,6 +161,7 @@
             this.txtNationalitate.Name = "txtNationalitate";
             this.txtNationalitate.Size = new System.Drawing.Size(119, 29);
             this.txtNationalitate.TabIndex = 10;
+            this.txtNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtFacultate
             // 
@@ -168,6 +170,7 @@
             this.txtFacultate.Name = "txtFacultate";
             this.txtFacultate.Size = new System.Drawing.Size(155, 29);
             this.txtFacultate.TabIndex = 11;
+            this.txtFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtData
             // 
@@ -176,6 +179,7 @@
             this.txtData.Name = "txtData";
             this.txtData.Size = new System.Drawing.Size(155, 29);
             this.txtData.TabIndex = 12;
+            this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtNr_matricol
             // 
@@ -184,6 +188,7 @@
             this.txtNr_matricol.Name = "txtNr_matricol";
             this.txtNr_matricol.Size = new System.Drawing.Size(90, 29);
             this.txtNr_matricol.TabIndex = 13;
+            this.txtNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtMedia
             // 
@@ -192,6 +197,7 @@
             this.txtMedia.Name = "txtMedia";
             this.txtMedia.Size = new System.Drawing.Size(155, 29);
             this.txtMedia.TabIndex = 14;
+            this.txtMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtCamin
             // 
@@ -208,12 +214,13 @@
             this.txtCamin.Name = "txtCamin";
             this.txtCamin.Size = new System.Drawing.Size(121, 24);
             this.txtCamin.TabIndex = 15;
+            this.txtCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // EroareNume
             // 
             this.EroareNume.AutoSize = true;
             this.EroareNume.BackColor = System.Drawing.Color.Transparent;
-            this.EroareNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareNume.ForeColor = System.Drawing.Color.Red;
             this.EroareNume.Location = new System.Drawing.Point(379, 74);
             this.EroareNume.Name = "EroareNume";
@@ -223,7 +230,7 @@
             // EroarePrenume
             // 
             this.EroarePrenume.AutoSize = true;
-            this.EroarePrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroarePrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroarePrenume.ForeColor = System.Drawing.Color.Red;
             this.EroarePrenume.Location = new System.Drawing.Point(379, 146);
             this.EroarePrenume.Name = "EroarePrenume";
@@ -233,7 +240,7 @@
             // EroareData
             // 
             this.EroareData.AutoSize = true;
-            this.EroareData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareData.ForeColor = System.Drawing.Color.Red;
             this.EroareData.Location = new System.Drawing.Point(994, 73);
             this.EroareData.Name = "EroareData";
@@ -243,7 +250,7 @@
             // EroareFacultate
             // 
             this.EroareFacultate.AutoSize = true;
-            this.EroareFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareFacultate.ForeColor = System.Drawing.Color.Red;
             this.EroareFacultate.Location = new System.Drawing.Point(379, 299);
             this.EroareFacultate.Name = "EroareFacultate";
@@ -253,7 +260,7 @@
             // EroareNationalitate
             // 
             this.EroareNationalitate.AutoSize = true;
-            this.EroareNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareNationalitate.ForeColor = System.Drawing.Color.Red;
             this.EroareNationalitate.Location = new System.Drawing.Point(379, 221);
             this.EroareNationalitate.Name = "EroareNationalitate";
@@ -263,7 +270,7 @@
             // EroareNr_matricol
             // 
             this.EroareNr_matricol.AutoSize = true;
-            this.EroareNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareNr_matricol.ForeColor = System.Drawing.Color.Red;
             this.EroareNr_matricol.Location = new System.Drawing.Point(988, 142);
             this.EroareNr_matricol.Name = "EroareNr_matricol";
@@ -273,7 +280,7 @@
             // EroareMedia
             // 
             this.EroareMedia.AutoSize = true;
-            this.EroareMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareMedia.ForeColor = System.Drawing.Color.Red;
             this.EroareMedia.Location = new System.Drawing.Point(982, 222);
             this.EroareMedia.Name = "EroareMedia";
@@ -283,7 +290,7 @@
             // EroareCamin
             // 
             this.EroareCamin.AutoSize = true;
-            this.EroareCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.EroareCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.EroareCamin.ForeColor = System.Drawing.Color.Red;
             this.EroareCamin.Location = new System.Drawing.Point(988, 298);
             this.EroareCamin.Name = "EroareCamin";
@@ -294,36 +301,49 @@
             // 
             this.btnAdauga.Location = new System.Drawing.Point(337, 350);
             this.btnAdauga.Name = "btnAdauga";
-            this.btnAdauga.Size = new System.Drawing.Size(129, 49);
+            this.btnAdauga.Size = new System.Drawing.Size(150, 49);
             this.btnAdauga.TabIndex = 24;
             this.btnAdauga.Text = "Adauga";
             this.btnAdauga.UseVisualStyleBackColor = true;
             this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
+            this.btnAdauga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnAdauga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdauga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAdauga.ForeColor = System.Drawing.Color.White;
             // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(496, 350);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(118, 49);
+            this.btnReset.Size = new System.Drawing.Size(150, 49);
             this.btnReset.TabIndex = 25;
             this.btnReset.Text = "Reseteaza";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnReset.ForeColor = System.Drawing.Color.White;
             // 
             // btnCauatare
             // 
             this.btnCauatare.Location = new System.Drawing.Point(634, 350);
             this.btnCauatare.Name = "btnCauatare";
-            this.btnCauatare.Size = new System.Drawing.Size(110, 49);
+            this.btnCauatare.Size = new System.Drawing.Size(150, 49);
             this.btnCauatare.TabIndex = 26;
             this.btnCauatare.Text = "Cautare";
             this.btnCauatare.UseVisualStyleBackColor = true;
             this.btnCauatare.Click += new System.EventHandler(this.btnCauatare_Click);
+            this.btnCauatare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCauatare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCauatare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCauatare.ForeColor = System.Drawing.Color.White;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1076, 450);
             this.Controls.Add(this.btnCauatare);
             this.Controls.Add(this.btnReset);
@@ -352,11 +372,12 @@
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblPrenume);
             this.Controls.Add(this.lblNume);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Gestionare Studenți";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

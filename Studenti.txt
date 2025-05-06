@@ -4,3 +4,4 @@ Jenia;Zehria;21.09.2006;ukr;454785f;9;FIMAR;C2
 Artem;Kyrchu;21.09.2006;ukr;454545f;9;fiesc;C4
 Ion;Popescu;22.02.2004;MD;746434F;8;FEA;C1
 dfddfffffffffff;fdddff;21.09.2006;ukr;444545;90;fimar;C6
+ZEHRIA;YEVHENII;21.09.2006;ukr;4432323f;5.2;FEA;C4

@@ -13,29 +13,25 @@ namespace StocareDateNiveluri
     public class AdministrareStudenti
     {
 
-        private Student[] studenti;
-        private int nrStudenti;
-
-        private const int NR_MAX_STD = 50;
+        private List<Student> studenti;
         public AdministrareStudenti()
         {
-            studenti = new Student[NR_MAX_STD];
-            nrStudenti = 0;
+            studenti = new List<Student>();
         }
         public void AdaugareStudent(Student student)
         {
-            studenti[nrStudenti] = student;
-            nrStudenti++;
+            studenti.Add(student);
         }
-        public Student[] GetStudents(out int nrStudenti)
+        
+        public List<Student>GetStudents()
         {
-            nrStudenti = this.nrStudenti;
+           
             return studenti;
         }
         public Student CautaredupanrMatricol(string Nr_mat)
         {
-            int nrStudenti;
-            Student[] studenti = GetStudents(out nrStudenti);
+            
+            List<Student> studenti = GetStudents();
 
             foreach (var student in studenti)
             {
@@ -49,9 +45,8 @@ namespace StocareDateNiveluri
 
         public Student CautaredupanNume(string nume, string prenume)
         {
-            int nrStudenti;
-            Student[] studenti = GetStudents(out nrStudenti);
-
+           
+            List<Student> studenti = GetStudents();
             foreach (var student in studenti)
             {
                 if (student != null && student.Nume == nume && student.Prenume == prenume)

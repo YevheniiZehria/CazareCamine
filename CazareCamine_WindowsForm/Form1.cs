@@ -35,9 +35,9 @@ namespace CazareCamine_WindowsForm
             // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
-            int nrStudenti = 0;
+            
 
-            Student[] studenti = adminStudenti.GetStudenti(out nrStudenti);
+            List<Student> studenti = adminStudenti.GetStudenti();
 
             int yInputStart = 105;
             //setare proprietati
@@ -188,16 +188,16 @@ namespace CazareCamine_WindowsForm
                 }
             }
 
-            Student[] studenti = adminStudenti.GetStudenti(out int nrStudenti);
+            List<Student> studenti = adminStudenti.GetStudenti();
 
-            if (studenti == null || studenti.Length == 0)
+            if (studenti == null || studenti.Count == 0)
             {
                 MessageBox.Show("Nu există studenți înregistrați.");
                 return;
             }
 
             // Inițializare tablou bidimensional
-            lblsStudenti = new Label[nrStudenti, 8]; // 8 coloane pentru Nume, Prenume, Data, Naționalitate, Nr Matricol, Media, Facultate, Cămin
+            lblsStudenti = new Label[studenti.Count, 8]; // 8 coloane pentru Nume, Prenume, Data, Naționalitate, Nr Matricol, Media, Facultate, Cămin
 
             // Adăugare headers
             string[] headers = { "Nume", "Prenume", "Data", "Naționalitate", "Nr Matricol", "Media", "Facultate", "Cămin" };
@@ -212,7 +212,7 @@ namespace CazareCamine_WindowsForm
                 this.Controls.Add(header);
             }
 
-            for (int i = 0; i < nrStudenti; i++)
+            for (int i = 0; i < studenti.Count; i++)
             {
                 // Nume
                 lblsStudenti[i, 0] = new Label();
@@ -355,13 +355,13 @@ namespace CazareCamine_WindowsForm
             EroareCamin.Text = "";
 
             // Obține studenții
-            Student[] studenti = adminStudenti.GetStudenti(out int nrStudenti);
-            if (studenti != null && studenti.Length > 0)
+            List<Student> studenti = adminStudenti.GetStudenti(); 
+            if (studenti != null && studenti.Count > 0)
             {
                 // Creează o instanță a Form2
                 Form2 form2 = new Form2();
                 // Afișează studenții în Form2
-                form2.AfiseazaStudenti(studenti);
+                form2.AfiseazaGrid(studenti);
                 // Deschide Form2
                 form2.Show();
             }

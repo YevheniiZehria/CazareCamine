@@ -34,9 +34,9 @@ namespace CazareCamine_WindowsForm
             // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
-            int nrStudenti = 0;
+           
 
-            Student[] studenti = adminStudenti.GetStudenti(out nrStudenti);
+            List<Student> studenti = adminStudenti.GetStudenti();
 
            
             //setare proprietati
@@ -52,7 +52,7 @@ namespace CazareCamine_WindowsForm
 
         }
 
-        public void AfiseazaStudenti(Student[] studenti)
+        public void AfiseazaStudenti(List<Student> studenti)
         {
             // Șterge toate controalele existente
             this.Controls.Clear();
@@ -71,10 +71,10 @@ namespace CazareCamine_WindowsForm
             }
 
             // Inițializare tablou bidimensional
-            lblsStudenti = new Label[studenti.Length, 8]; // 8 coloane pentru fiecare atribut
+            lblsStudenti = new Label[studenti.Count, 8]; // 8 coloane pentru fiecare atribut
 
             // Afișare studenți
-            for (int i = 0; i < studenti.Length; i++)
+            for (int i = 0; i < studenti.Count; i++)
             {
                 // Nume
                 lblsStudenti[i, 0] = new Label();
@@ -141,5 +141,12 @@ namespace CazareCamine_WindowsForm
                 this.Controls.Add(lblsStudenti[i, 7]);
             }
         }
+        public void AfiseazaGrid(List<Student> cititori)
+        {
+            gridStudent.DataSource = null;
+            gridStudent.DataSource = cititori.Select(s => new { s.Nume, s.Prenume, s.Data_nasterii, s.Nationalitate, s.Nr_matricol, s.Medie, s.Facultate}).ToList();
+        }
+
+
     }
 }

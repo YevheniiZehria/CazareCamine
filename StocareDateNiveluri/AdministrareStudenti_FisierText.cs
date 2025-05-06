@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace StocareDateNiveluri
 {
     public class AdministrareStudenti_FisierText
     {
-        private const int NR_MAX_STUDENTI = 50;
+        
         private string numeFisier;
 
         public AdministrareStudenti_FisierText(string numeFisier)
@@ -34,30 +35,30 @@ namespace StocareDateNiveluri
             }
         }
 
-        public Student[] GetStudenti(out int nrStudenti)
+        public List<Student> GetStudenti()
         {
-            Student[] studenti = new Student[NR_MAX_STUDENTI];
+            List<Student> studenti = new List<Student>();
 
             // instructiunea 'using' va apela streamReader.Close()
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
                 string linieFisier;
-                nrStudenti = 0;
+                
 
                 // citeste cate o linie si creaza un obiect de tip Student
                 // pe baza datelor din linia citita
                 while ((linieFisier = streamReader.ReadLine()) != null)
                 {
-                    studenti[nrStudenti++] = new Student(linieFisier);
+                    studenti.Add(new Student(linieFisier));
                 }
             }
-            Array.Resize(ref studenti, nrStudenti);
+            
             return studenti;
         }
         public Student CautaredupanrMatricol(string Nr_mat)
         {
-            int nrStudenti;
-            Student[] studenti = GetStudenti(out nrStudenti);
+            
+            List<Student> studenti = GetStudenti();
 
             foreach (var student in studenti)
             {
@@ -71,8 +72,8 @@ namespace StocareDateNiveluri
 
         public Student CautaredupanNume(string nume, string prenume)
         {
-            int nrStudenti;
-            Student[] studenti = GetStudenti(out nrStudenti);
+           
+            List<Student> studenti = GetStudenti();
 
             foreach (var student in studenti)
             {
@@ -124,6 +125,24 @@ namespace StocareDateNiveluri
             return null;
         }
       
+        public List<Student> GetStudents_Nume_Prenume(string nume, string prenume)
+        {
+            List<Student> studentiGasiti = new List<Student>();
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string linieFisier;
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    Student student = new Student(linieFisier);
+                    if (student.Nume.Equals(nume, StringComparison.OrdinalIgnoreCase) && 
+                        student.Prenume.Equals(prenume, StringComparison.OrdinalIgnoreCase))
+                    {
+                        studentiGasiti.Add(student);
+                    }
+                }
+            }
+            return studentiGasiti;
+        }
     }
 }
 
