@@ -93,14 +93,14 @@ namespace CazareCamine_WindowsForm
             
             if (checkAllFaculties.Checked)
             {
-                // If "All Faculties" is checked, include all faculties
+                
                 selectedFaculties.Add("FIMAR");
                 selectedFaculties.Add("FIESC");
                 selectedFaculties.Add("FEA");
             }
             else
             {
-                // Otherwise, only include checked faculties
+               
                 if (checkFIMAR.Checked) selectedFaculties.Add("FIMAR");
                 if (checkFIESC.Checked) selectedFaculties.Add("FIESC");
                 if (checkFEA.Checked) selectedFaculties.Add("FEA");
@@ -109,7 +109,7 @@ namespace CazareCamine_WindowsForm
 
         private bool IsStudentInSelectedFaculties(Student student)
         {
-            // If no faculties are selected, show all students
+           
             if (selectedFaculties.Count == 0)
                 return true;
                 
