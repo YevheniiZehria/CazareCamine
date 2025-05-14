@@ -1,53 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using CazareCamine;
-using StocareDateNiveluri; // Ensure you have this namespace for access to your data classes
+using LibrarieModel;
+using StocareDateNiveluri;
 
 namespace CazareCamine_WindowsForm
 {
     public partial class Form3 : Form
     {
         private AdministrareStudenti_FisierText adminStudenti;
-        private List<string> selectedFaculties;
+        private List<string> selectedCamine;
 
         public Form3()
         {
             InitializeComponent();
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            // setare locatie fisier in directorul corespunzator solutiei
-            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
-            
-            List<Student> studenti = adminStudenti.GetStudenti();
-            
-            // Initialize selected faculties list
-            selectedFaculties = new List<string>();
-            UpdateSelectedFaculties();
-            
+
+            selectedCamine = new List<string>();
+            UpdateSelectedCamine();
+
             UpdateUIState();
         }
 
         private void UpdateUIState()
         {
             bool isNameSearch = radioNume.Checked;
-       
+
             lbl3Nume.Visible = isNameSearch;
             textNume.Visible = isNameSearch;
             lbl3Prenume.Visible = isNameSearch;
             textPrenume.Visible = isNameSearch;
             buttonSubmit.Visible = isNameSearch;
-            
+
             lblNrMatricol.Visible = !isNameSearch;
             textNrMatricol.Visible = !isNameSearch;
             buttonSearchMatricol.Visible = !isNameSearch;
@@ -63,100 +53,157 @@ namespace CazareCamine_WindowsForm
             UpdateUIState();
         }
 
-        private void checkFaculty_CheckedChanged(object sender, EventArgs e)
+        private void checkCamin_CheckedChanged(object sender, EventArgs e)
         {
-            // If any individual faculty is checked, uncheck "All Faculties"
-            if (sender is CheckBox checkBox && checkBox.Checked && checkBox != checkAllFaculties)
+            if (sender is CheckBox checkBox)
             {
-                checkAllFaculties.Checked = false;
+                // Dezactivează toate celelalte checkbox-uri când unul este bifat
+                if (checkBox.Checked)
+                {
+                    foreach (Control control in facultyFilterGroup.Controls)
+                    {
+                        if (control is CheckBox otherCheckBox && otherCheckBox != checkBox)
+                        {
+                            otherCheckBox.Checked = false;
+                        }
+                    }
+                }
             }
-            
-            UpdateSelectedFaculties();
+            UpdateSelectedCamine();
         }
 
-        private void checkAllFaculties_CheckedChanged(object sender, EventArgs e)
+        private void checkAllCamine_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkAllFaculties.Checked)
-            {
-                // If "All Faculties" is checked, uncheck all individual faculties
-                checkFIMAR.Checked = false;
-                checkFIESC.Checked = false;
-                checkFEA.Checked = false;
-            }
-            
-            UpdateSelectedFaculties();
+            checkC1.Checked = false;
+            checkC2.Checked = false;
+            checkC3.Checked = false;
+            checkC4.Checked = false;
+            checkC5.Checked = false;
+            checkC6.Checked = false;
+            checkC7.Checked = false;
+
+            UpdateSelectedCamine();
         }
 
-        private void UpdateSelectedFaculties()
+        private void UpdateSelectedCamine()
         {
-            selectedFaculties.Clear();
-            
-            if (checkAllFaculties.Checked)
+            selectedCamine.Clear();
+
+            // Verifică fiecare checkbox și adaugă căminul în listă dacă este bifat
+            if (checkC1.Checked) 
             {
-                
-                selectedFaculties.Add("FIMAR");
-                selectedFaculties.Add("FIESC");
-                selectedFaculties.Add("FEA");
+                selectedCamine.Add("C1");
+                Console.WriteLine("C1 selected"); // Debug info
             }
-            else
+            if (checkC2.Checked) 
             {
-               
-                if (checkFIMAR.Checked) selectedFaculties.Add("FIMAR");
-                if (checkFIESC.Checked) selectedFaculties.Add("FIESC");
-                if (checkFEA.Checked) selectedFaculties.Add("FEA");
+                selectedCamine.Add("C2");
+                Console.WriteLine("C2 selected"); // Debug info
             }
+            if (checkC3.Checked) 
+            {
+                selectedCamine.Add("C3");
+                Console.WriteLine("C3 selected"); // Debug info
+            }
+            if (checkC4.Checked) 
+            {
+                selectedCamine.Add("C4");
+                Console.WriteLine("C4 selected"); // Debug info
+            }
+            if (checkC5.Checked) 
+            {
+                selectedCamine.Add("C5");
+                Console.WriteLine("C5 selected"); // Debug info
+            }
+            if (checkC6.Checked) 
+            {
+                selectedCamine.Add("C6");
+                Console.WriteLine("C6 selected"); // Debug info
+            }
+            if (checkC7.Checked) 
+            {
+                selectedCamine.Add("C7");
+                Console.WriteLine("C7 selected"); // Debug info
+            }
+
+            Console.WriteLine($"Total cămine selectate: {selectedCamine.Count}"); // Debug info
         }
 
-        private bool IsStudentInSelectedFaculties(Student student)
+        private bool ValidateDormitorySelection()
         {
-           
-            if (selectedFaculties.Count == 0)
-                return true;
-                
-            // Check if student's faculty is in the selected faculties
-            return selectedFaculties.Contains(student.Facultate.ToUpper());
+            if (selectedCamine.Count == 0)
+            {
+                MessageBox.Show("Vă rugăm să selectați cel puțin un cămin pentru căutare!", "Atenție", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            // Verifică și afișează starea checkbox-urilor pentru debug
+            Console.WriteLine("Starea checkbox-urilor:");
+            Console.WriteLine($"C1: {checkC1.Checked}");
+            Console.WriteLine($"C2: {checkC2.Checked}");
+            Console.WriteLine($"C3: {checkC3.Checked}");
+            Console.WriteLine($"C4: {checkC4.Checked}");
+            Console.WriteLine($"C5: {checkC5.Checked}");
+            Console.WriteLine($"C6: {checkC6.Checked}");
+            Console.WriteLine($"C7: {checkC7.Checked}");
+
             if (string.IsNullOrEmpty(textNume.Text) || string.IsNullOrEmpty(textPrenume.Text))
             {
                 MessageBox.Show("Vă rugăm să completați toate câmpurile obligatorii!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Verifică dacă există cămin selectat
+            if (selectedCamine.Count == 0)
+            {
+                // Verifică din nou starea checkbox-urilor
+                bool anyChecked = checkC1.Checked || checkC2.Checked || checkC3.Checked || 
+                                 checkC4.Checked || checkC5.Checked || checkC6.Checked || checkC7.Checked;
+                
+                if (anyChecked)
+                {
+                    // Dacă există checkbox bifat dar lista este goală, actualizează lista
+                    UpdateSelectedCamine();
+                }
+                else
+                {
+                    MessageBox.Show("Vă rugăm să selectați un cămin pentru căutare!", "Atenție", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             List<Student> studentiGasiti = adminStudenti.GetStudents_Nume_Prenume(textNume.Text, textPrenume.Text);
-            
+
             if (studentiGasiti.Count == 0)
             {
                 MessageBox.Show("Nu s-a găsit niciun student cu acest nume și prenume!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Filtrare după facultate
-            List<Student> studentiFiltrati = studentiGasiti.Where(s => IsStudentInSelectedFaculties(s)).ToList();
+            // Filtrează studenții după căminul selectat
+            string caminSelectat = selectedCamine[0];
+            List<Student> studentiFiltrati = studentiGasiti.Where(s => s.CaminStudent.ToString() == caminSelectat).ToList();
 
             if (studentiFiltrati.Count == 0)
             {
-                MessageBox.Show("Nu s-au găsit studenți cu acest nume și prenume în facultățile selectate!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Nu s-au găsit studenți cu numele {textNume.Text} {textPrenume.Text} în căminul {caminSelectat}!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Afișare toți studenții găsiți
-            string mesaj = "Studenți găsiți:\n\n";
-            foreach (Student student in studentiFiltrati)
+            try
             {
-                mesaj += $"Nume: {student.Nume}\n";
-                mesaj += $"Prenume: {student.Prenume}\n";
-                mesaj += $"Număr Matricol: {student.Nr_matricol}\n";
-                mesaj += $"Facultate: {student.Facultate}\n";
-                mesaj += $"Camin: {student.CaminStudent}\n";
-                mesaj += $"Media: {student.Medie}\n";
-                mesaj += $"Data Nașterii: {student.Data_nasterii}\n";
-                mesaj += $"Naționalitate: {student.Nationalitate}\n\n";
+                Form2 form2 = new Form2();
+                form2.AfiseazaGrid(studentiFiltrati);
+                form2.Show();
             }
-
-            MessageBox.Show(mesaj, "Rezultate Căutare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la afișarea rezultatelor: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonSearchMatricol_Click(object sender, EventArgs e)
@@ -167,33 +214,38 @@ namespace CazareCamine_WindowsForm
                 return;
             }
 
+            if (!ValidateDormitorySelection())
+            {
+                return;
+            }
+
             Student student = adminStudenti.GetStudent_NrMatricol(textNrMatricol.Text);
-            
+
             if (student == null)
             {
                 MessageBox.Show("Nu s-a găsit niciun student cu acest număr de matricol!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            // Verificare facultate
-            if (!IsStudentInSelectedFaculties(student))
+            // Verifică dacă studentul este în căminul selectat
+            string caminSelectat = selectedCamine[0];
+            if (student.CaminStudent.ToString() != caminSelectat)
             {
-                MessageBox.Show("Studentul nu se află în facultățile selectate!", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Studentul nu se află în căminul {caminSelectat}! (Studentul se află în căminul {student.CaminStudent})", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            string mesaj = "Student găsit:\n\n";
-            mesaj += $"Nume: {student.Nume}\n";
-            mesaj += $"Prenume: {student.Prenume}\n";
-            mesaj += $"Număr Matricol: {student.Nr_matricol}\n";
-            mesaj += $"Facultate: {student.Facultate}\n";
-            mesaj += $"Camin: {student.CaminStudent}\n";
-            mesaj += $"Media: {student.Medie}\n";
-            mesaj += $"Data Nașterii: {student.Data_nasterii}\n";
-            mesaj += $"Naționalitate: {student.Nationalitate}";
-
-            MessageBox.Show(mesaj, "Rezultat Căutare", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                List<Student> studentiFiltrati = new List<Student> { student };
+                Form2 form2 = new Form2();
+                form2.AfiseazaGrid(studentiFiltrati);
+                form2.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la afișarea rezultatelor: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
-

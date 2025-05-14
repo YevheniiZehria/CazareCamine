@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CazareCamine;
 using LibrarieModel;
 using StocareDateNiveluri;
 
@@ -31,24 +30,53 @@ namespace CazareCamine_WindowsForm
             InitializeComponent();
             string numeFisier = ConfigurationManager.AppSettings["NumeFisier"];
             string locatieFisierSolutie = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName;
-            // setare locatie fisier in directorul corespunzator solutiei
-            // astfel incat datele din fisier sa poata fi utilizate si de alte proiecte
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
-            
 
-            List<Student> studenti = adminStudenti.GetStudenti();
+            // Setări pentru form
+            this.BackColor = Color.FromArgb(240, 240, 240);
+            this.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            this.Text = "Gestionare Studenți - Sistem de Cazare în Cămine";
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Size = new Size(1200, 700);
 
-            int yInputStart = 105;
-            //setare proprietati
-           
+            // Stilizare butoane
+            btnAdauga.Size = new Size(180, 40);
+            btnAdauga.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            btnAdauga.BackColor = Color.FromArgb(0, 122, 204);
+            btnAdauga.ForeColor = Color.White;
+            btnAdauga.FlatStyle = FlatStyle.Flat;
+            btnAdauga.FlatAppearance.BorderSize = 0;
+            btnAdauga.Cursor = Cursors.Hand;
 
-            
+            btnReset.Size = new Size(180, 40);
+            btnReset.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            btnReset.BackColor = Color.FromArgb(108, 117, 125);
+            btnReset.ForeColor = Color.White;
+            btnReset.FlatStyle = FlatStyle.Flat;
+            btnReset.FlatAppearance.BorderSize = 0;
+            btnReset.Cursor = Cursors.Hand;
 
-            
+            btnCauatare.Size = new Size(180, 40);
+            btnCauatare.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            btnCauatare.BackColor = Color.FromArgb(40, 167, 69);
+            btnCauatare.ForeColor = Color.White;
+            btnCauatare.FlatStyle = FlatStyle.Flat;
+            btnCauatare.FlatAppearance.BorderSize = 0;
+            btnCauatare.Cursor = Cursors.Hand;
+
+            // Adăugare efecte hover pentru butoane
+            btnAdauga.MouseEnter += (s, e) => btnAdauga.BackColor = Color.FromArgb(0, 102, 184);
+            btnAdauga.MouseLeave += (s, e) => btnAdauga.BackColor = Color.FromArgb(0, 122, 204);
+
+            btnReset.MouseEnter += (s, e) => btnReset.BackColor = Color.FromArgb(88, 97, 105);
+            btnReset.MouseLeave += (s, e) => btnReset.BackColor = Color.FromArgb(108, 117, 125);
+
+            btnCauatare.MouseEnter += (s, e) => btnCauatare.BackColor = Color.FromArgb(30, 147, 59);
+            btnCauatare.MouseLeave += (s, e) => btnCauatare.BackColor = Color.FromArgb(40, 167, 69);
         }
-
- 
 
         private bool Prevalidare(string nume, string prenume, string nationalitate, string facultate, string data, string nrMatricol, string media, string camin)
         {
@@ -377,7 +405,18 @@ namespace CazareCamine_WindowsForm
             form3.ShowDialog(); // Opens Form3 as a dialog
         }
 
-       
+        private void btnModificare_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form2 form2 = new Form2();
+                form2.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la deschiderea formularului de modificare: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 

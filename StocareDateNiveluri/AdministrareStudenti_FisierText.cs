@@ -1,4 +1,4 @@
-﻿using CazareCamine;
+﻿using LibrarieModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -142,6 +142,11 @@ namespace StocareDateNiveluri
                 }
             }
             return studentiGasiti;
+        }
+
+        public string GetNumeFisier()
+        {
+            return numeFisier;
         }
     }
 }

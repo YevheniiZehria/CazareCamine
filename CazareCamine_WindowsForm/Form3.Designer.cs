@@ -40,10 +40,13 @@
             this.radioMatricol = new System.Windows.Forms.RadioButton();
             this.radioNume = new System.Windows.Forms.RadioButton();
             this.facultyFilterGroup = new System.Windows.Forms.GroupBox();
-            this.checkAllFaculties = new System.Windows.Forms.CheckBox();
-            this.checkFEA = new System.Windows.Forms.CheckBox();
-            this.checkFIESC = new System.Windows.Forms.CheckBox();
-            this.checkFIMAR = new System.Windows.Forms.CheckBox();
+            this.checkC4 = new System.Windows.Forms.CheckBox();
+            this.checkC3 = new System.Windows.Forms.CheckBox();
+            this.checkC2 = new System.Windows.Forms.CheckBox();
+            this.checkC1 = new System.Windows.Forms.CheckBox();
+            this.checkC5 = new System.Windows.Forms.CheckBox();
+            this.checkC6 = new System.Windows.Forms.CheckBox();
+            this.checkC7 = new System.Windows.Forms.CheckBox();
             this.searchTypePanel.SuspendLayout();
             this.facultyFilterGroup.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +71,7 @@
             // 
             this.lbl3Nume.AutoSize = true;
             this.lbl3Nume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lbl3Nume.Location = new System.Drawing.Point(75, 72);
+            this.lbl3Nume.Location = new System.Drawing.Point(82, 72);
             this.lbl3Nume.Name = "lbl3Nume";
             this.lbl3Nume.Size = new System.Drawing.Size(70, 25);
             this.lbl3Nume.TabIndex = 2;
@@ -101,7 +104,7 @@
             // textNrMatricol
             // 
             this.textNrMatricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.textNrMatricol.Location = new System.Drawing.Point(463, 72);
+            this.textNrMatricol.Location = new System.Drawing.Point(503, 71);
             this.textNrMatricol.Name = "textNrMatricol";
             this.textNrMatricol.Size = new System.Drawing.Size(200, 26);
             this.textNrMatricol.TabIndex = 5;
@@ -110,7 +113,7 @@
             // 
             this.lblNrMatricol.AutoSize = true;
             this.lblNrMatricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblNrMatricol.Location = new System.Drawing.Point(348, 72);
+            this.lblNrMatricol.Location = new System.Drawing.Point(390, 72);
             this.lblNrMatricol.Name = "lblNrMatricol";
             this.lblNrMatricol.Size = new System.Drawing.Size(111, 25);
             this.lblNrMatricol.TabIndex = 6;
@@ -122,7 +125,7 @@
             this.buttonSearchMatricol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSearchMatricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonSearchMatricol.ForeColor = System.Drawing.Color.White;
-            this.buttonSearchMatricol.Location = new System.Drawing.Point(463, 110);
+            this.buttonSearchMatricol.Location = new System.Drawing.Point(503, 142);
             this.buttonSearchMatricol.Name = "buttonSearchMatricol";
             this.buttonSearchMatricol.Size = new System.Drawing.Size(200, 40);
             this.buttonSearchMatricol.TabIndex = 7;
@@ -169,67 +172,98 @@
             // facultyFilterGroup
             // 
             this.facultyFilterGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.facultyFilterGroup.Controls.Add(this.checkAllFaculties);
-            this.facultyFilterGroup.Controls.Add(this.checkFEA);
-            this.facultyFilterGroup.Controls.Add(this.checkFIESC);
-            this.facultyFilterGroup.Controls.Add(this.checkFIMAR);
+            this.facultyFilterGroup.Controls.Add(this.checkC7);
+            this.facultyFilterGroup.Controls.Add(this.checkC6);
+            this.facultyFilterGroup.Controls.Add(this.checkC5);
+            this.facultyFilterGroup.Controls.Add(this.checkC4);
+            this.facultyFilterGroup.Controls.Add(this.checkC3);
+            this.facultyFilterGroup.Controls.Add(this.checkC2);
+            this.facultyFilterGroup.Controls.Add(this.checkC1);
             this.facultyFilterGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.facultyFilterGroup.Location = new System.Drawing.Point(80, 260);
             this.facultyFilterGroup.Name = "facultyFilterGroup";
-            this.facultyFilterGroup.Size = new System.Drawing.Size(583, 100);
+            this.facultyFilterGroup.Size = new System.Drawing.Size(682, 100);
             this.facultyFilterGroup.TabIndex = 9;
             this.facultyFilterGroup.TabStop = false;
-            this.facultyFilterGroup.Text = "Filtrare dupa Facultate";
+            this.facultyFilterGroup.Text = "Filtrare dupa Camine";
             // 
-            // checkAllFaculties
+            // checkC4
             // 
-            this.checkAllFaculties.AutoSize = true;
-            this.checkAllFaculties.Checked = true;
-            this.checkAllFaculties.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkAllFaculties.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkAllFaculties.Location = new System.Drawing.Point(410, 30);
-            this.checkAllFaculties.Name = "checkAllFaculties";
-            this.checkAllFaculties.Size = new System.Drawing.Size(155, 24);
-            this.checkAllFaculties.TabIndex = 3;
-            this.checkAllFaculties.Text = "Toate Facultățile";
-            this.checkAllFaculties.UseVisualStyleBackColor = true;
-            this.checkAllFaculties.CheckedChanged += new System.EventHandler(this.checkAllFaculties_CheckedChanged);
+            this.checkC4.AutoSize = true;
+            this.checkC4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC4.Location = new System.Drawing.Point(301, 30);
+            this.checkC4.Name = "checkC4";
+            this.checkC4.Size = new System.Drawing.Size(52, 24);
+            this.checkC4.TabIndex = 3;
+            this.checkC4.Text = "C4";
+            this.checkC4.UseVisualStyleBackColor = true;
+          
             // 
-            // checkFEA
+            // checkC3
             // 
-            this.checkFEA.AutoSize = true;
-            this.checkFEA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkFEA.Location = new System.Drawing.Point(280, 30);
-            this.checkFEA.Name = "checkFEA";
-            this.checkFEA.Size = new System.Drawing.Size(63, 24);
-            this.checkFEA.TabIndex = 2;
-            this.checkFEA.Text = "FEA";
-            this.checkFEA.UseVisualStyleBackColor = true;
-            this.checkFEA.CheckedChanged += new System.EventHandler(this.checkFaculty_CheckedChanged);
+            this.checkC3.AutoSize = true;
+            this.checkC3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC3.Location = new System.Drawing.Point(207, 30);
+            this.checkC3.Name = "checkC3";
+            this.checkC3.Size = new System.Drawing.Size(52, 24);
+            this.checkC3.TabIndex = 2;
+            this.checkC3.Text = "C3";
+            this.checkC3.UseVisualStyleBackColor = true;
+          
+            // checkC2
             // 
-            // checkFIESC
+            this.checkC2.AutoSize = true;
+            this.checkC2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC2.Location = new System.Drawing.Point(109, 30);
+            this.checkC2.Name = "checkC2";
+            this.checkC2.Size = new System.Drawing.Size(52, 24);
+            this.checkC2.TabIndex = 1;
+            this.checkC2.Text = "C2";
+            this.checkC2.UseVisualStyleBackColor = true;
+             
+            // checkC1
             // 
-            this.checkFIESC.AutoSize = true;
-            this.checkFIESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkFIESC.Location = new System.Drawing.Point(150, 30);
-            this.checkFIESC.Name = "checkFIESC";
-            this.checkFIESC.Size = new System.Drawing.Size(79, 24);
-            this.checkFIESC.TabIndex = 1;
-            this.checkFIESC.Text = "FIESC";
-            this.checkFIESC.UseVisualStyleBackColor = true;
-            this.checkFIESC.CheckedChanged += new System.EventHandler(this.checkFaculty_CheckedChanged);
+            this.checkC1.AutoSize = true;
+            this.checkC1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC1.Location = new System.Drawing.Point(20, 30);
+            this.checkC1.Name = "checkC1";
+            this.checkC1.Size = new System.Drawing.Size(52, 24);
+            this.checkC1.TabIndex = 0;
+            this.checkC1.Text = "C1\r\n";
+            this.checkC1.UseVisualStyleBackColor = true;
+            
+            // checkC5
             // 
-            // checkFIMAR
+            this.checkC5.AutoSize = true;
+            this.checkC5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC5.Location = new System.Drawing.Point(407, 30);
+            this.checkC5.Name = "checkC5";
+            this.checkC5.Size = new System.Drawing.Size(52, 24);
+            this.checkC5.TabIndex = 4;
+            this.checkC5.Text = "C5";
+            this.checkC5.UseVisualStyleBackColor = true;
             // 
-            this.checkFIMAR.AutoSize = true;
-            this.checkFIMAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.checkFIMAR.Location = new System.Drawing.Point(20, 30);
-            this.checkFIMAR.Name = "checkFIMAR";
-            this.checkFIMAR.Size = new System.Drawing.Size(82, 24);
-            this.checkFIMAR.TabIndex = 0;
-            this.checkFIMAR.Text = "FIMAR";
-            this.checkFIMAR.UseVisualStyleBackColor = true;
-            this.checkFIMAR.CheckedChanged += new System.EventHandler(this.checkFaculty_CheckedChanged);
+            // checkC6
+            // 
+            this.checkC6.AutoSize = true;
+            this.checkC6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC6.Location = new System.Drawing.Point(502, 30);
+            this.checkC6.Name = "checkC6";
+            this.checkC6.Size = new System.Drawing.Size(52, 24);
+            this.checkC6.TabIndex = 5;
+            this.checkC6.Text = "C6";
+            this.checkC6.UseVisualStyleBackColor = true;
+            // 
+            // checkC7
+            // 
+            this.checkC7.AutoSize = true;
+            this.checkC7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.checkC7.Location = new System.Drawing.Point(599, 30);
+            this.checkC7.Name = "checkC7";
+            this.checkC7.Size = new System.Drawing.Size(52, 24);
+            this.checkC7.TabIndex = 6;
+            this.checkC7.Text = "C7";
+            this.checkC7.UseVisualStyleBackColor = true;
             // 
             // Form3
             // 
@@ -275,9 +309,12 @@
         private System.Windows.Forms.RadioButton radioMatricol;
         private System.Windows.Forms.RadioButton radioNume;
         private System.Windows.Forms.GroupBox facultyFilterGroup;
-        private System.Windows.Forms.CheckBox checkAllFaculties;
-        private System.Windows.Forms.CheckBox checkFEA;
-        private System.Windows.Forms.CheckBox checkFIESC;
-        private System.Windows.Forms.CheckBox checkFIMAR;
+        private System.Windows.Forms.CheckBox checkC4;
+        private System.Windows.Forms.CheckBox checkC3;
+        private System.Windows.Forms.CheckBox checkC2;
+        private System.Windows.Forms.CheckBox checkC1;
+        private System.Windows.Forms.CheckBox checkC5;
+        private System.Windows.Forms.CheckBox checkC7;
+        private System.Windows.Forms.CheckBox checkC6;
     }
 }

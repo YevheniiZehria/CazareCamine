@@ -55,152 +55,170 @@
             this.btnAdauga = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnCauatare = new System.Windows.Forms.Button();
+            this.btnModificare = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // lblNume
             // 
             this.lblNume.AutoSize = true;
-            this.lblNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblNume.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblNume.Location = new System.Drawing.Point(106, 74);
             this.lblNume.Name = "lblNume";
-            this.lblNume.Size = new System.Drawing.Size(84, 25);
+            this.lblNume.Size = new System.Drawing.Size(61, 23);
             this.lblNume.TabIndex = 0;
             this.lblNume.Text = "Nume:";
             // 
             // lblPrenume
             // 
             this.lblPrenume.AutoSize = true;
-            this.lblPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblPrenume.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPrenume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblPrenume.Location = new System.Drawing.Point(106, 146);
             this.lblPrenume.Name = "lblPrenume";
-            this.lblPrenume.Size = new System.Drawing.Size(117, 25);
+            this.lblPrenume.Size = new System.Drawing.Size(83, 23);
             this.lblPrenume.TabIndex = 1;
             this.lblPrenume.Text = "Prenume:";
             // 
             // lblData
             // 
             this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblData.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblData.Location = new System.Drawing.Point(670, 70);
             this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(157, 25);
+            this.lblData.Size = new System.Drawing.Size(113, 23);
             this.lblData.TabIndex = 2;
             this.lblData.Text = "Data Nasterii:";
             // 
             // lblNationalitate
             // 
             this.lblNationalitate.AutoSize = true;
-            this.lblNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblNationalitate.Location = new System.Drawing.Point(106, 218);
+            this.lblNationalitate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNationalitate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblNationalitate.Location = new System.Drawing.Point(76, 217);
             this.lblNationalitate.Name = "lblNationalitate";
-            this.lblNationalitate.Size = new System.Drawing.Size(153, 25);
+            this.lblNationalitate.Size = new System.Drawing.Size(113, 23);
             this.lblNationalitate.TabIndex = 3;
             this.lblNationalitate.Text = "Nationalitate:";
             // 
             // lblNr_matricol
             // 
             this.lblNr_matricol.AutoSize = true;
-            this.lblNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblNr_matricol.Location = new System.Drawing.Point(670, 138);
+            this.lblNr_matricol.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblNr_matricol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblNr_matricol.Location = new System.Drawing.Point(634, 138);
             this.lblNr_matricol.Name = "lblNr_matricol";
-            this.lblNr_matricol.Size = new System.Drawing.Size(201, 25);
+            this.lblNr_matricol.Size = new System.Drawing.Size(148, 23);
             this.lblNr_matricol.TabIndex = 4;
             this.lblNr_matricol.Text = "Numarul Matricol:";
             // 
             // lblMedia
             // 
             this.lblMedia.AutoSize = true;
-            this.lblMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblMedia.Location = new System.Drawing.Point(670, 218);
+            this.lblMedia.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblMedia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblMedia.Location = new System.Drawing.Point(721, 217);
             this.lblMedia.Name = "lblMedia";
-            this.lblMedia.Size = new System.Drawing.Size(86, 25);
+            this.lblMedia.Size = new System.Drawing.Size(61, 23);
             this.lblMedia.TabIndex = 5;
             this.lblMedia.Text = "Media:";
             // 
             // lblFacultate
             // 
             this.lblFacultate.AutoSize = true;
-            this.lblFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblFacultate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblFacultate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblFacultate.Location = new System.Drawing.Point(106, 295);
             this.lblFacultate.Name = "lblFacultate";
-            this.lblFacultate.Size = new System.Drawing.Size(117, 25);
+            this.lblFacultate.Size = new System.Drawing.Size(82, 23);
             this.lblFacultate.TabIndex = 6;
             this.lblFacultate.Text = "Facultate:";
             // 
             // lblCamin
             // 
             this.lblCamin.AutoSize = true;
-            this.lblCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCamin.Location = new System.Drawing.Point(668, 288);
+            this.lblCamin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblCamin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblCamin.Location = new System.Drawing.Point(721, 293);
             this.lblCamin.Name = "lblCamin";
-            this.lblCamin.Size = new System.Drawing.Size(88, 25);
+            this.lblCamin.Size = new System.Drawing.Size(63, 23);
             this.lblCamin.TabIndex = 7;
             this.lblCamin.Text = "Camin:";
             // 
             // txtNume
             // 
+            this.txtNume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNume.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtNume.Location = new System.Drawing.Point(218, 74);
             this.txtNume.Multiline = true;
             this.txtNume.Name = "txtNume";
-            this.txtNume.Size = new System.Drawing.Size(155, 29);
+            this.txtNume.Size = new System.Drawing.Size(200, 30);
             this.txtNume.TabIndex = 8;
-            this.txtNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtPrenume
             // 
+            this.txtPrenume.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPrenume.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtPrenume.Location = new System.Drawing.Point(218, 146);
             this.txtPrenume.Multiline = true;
             this.txtPrenume.Name = "txtPrenume";
-            this.txtPrenume.Size = new System.Drawing.Size(155, 29);
+            this.txtPrenume.Size = new System.Drawing.Size(200, 30);
             this.txtPrenume.TabIndex = 9;
-            this.txtPrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtNationalitate
             // 
-            this.txtNationalitate.Location = new System.Drawing.Point(254, 218);
+            this.txtNationalitate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNationalitate.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNationalitate.Location = new System.Drawing.Point(218, 210);
             this.txtNationalitate.Multiline = true;
             this.txtNationalitate.Name = "txtNationalitate";
-            this.txtNationalitate.Size = new System.Drawing.Size(119, 29);
+            this.txtNationalitate.Size = new System.Drawing.Size(200, 30);
             this.txtNationalitate.TabIndex = 10;
-            this.txtNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtFacultate
             // 
+            this.txtFacultate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFacultate.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtFacultate.Location = new System.Drawing.Point(218, 295);
             this.txtFacultate.Multiline = true;
             this.txtFacultate.Name = "txtFacultate";
-            this.txtFacultate.Size = new System.Drawing.Size(155, 29);
+            this.txtFacultate.Size = new System.Drawing.Size(200, 30);
             this.txtFacultate.TabIndex = 11;
-            this.txtFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtData
             // 
-            this.txtData.Location = new System.Drawing.Point(833, 70);
+            this.txtData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtData.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtData.Location = new System.Drawing.Point(821, 68);
             this.txtData.Multiline = true;
             this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(155, 29);
+            this.txtData.Size = new System.Drawing.Size(200, 30);
             this.txtData.TabIndex = 12;
-            this.txtData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtNr_matricol
             // 
-            this.txtNr_matricol.Location = new System.Drawing.Point(892, 142);
+            this.txtNr_matricol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNr_matricol.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtNr_matricol.Location = new System.Drawing.Point(821, 144);
             this.txtNr_matricol.Multiline = true;
             this.txtNr_matricol.Name = "txtNr_matricol";
-            this.txtNr_matricol.Size = new System.Drawing.Size(90, 29);
+            this.txtNr_matricol.Size = new System.Drawing.Size(200, 30);
             this.txtNr_matricol.TabIndex = 13;
-            this.txtNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtMedia
             // 
+            this.txtMedia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMedia.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMedia.Location = new System.Drawing.Point(821, 218);
             this.txtMedia.Multiline = true;
             this.txtMedia.Name = "txtMedia";
-            this.txtMedia.Size = new System.Drawing.Size(155, 29);
+            this.txtMedia.Size = new System.Drawing.Size(200, 30);
             this.txtMedia.TabIndex = 14;
-            this.txtMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // txtCamin
             // 
+            this.txtCamin.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtCamin.FormattingEnabled = true;
             this.txtCamin.Items.AddRange(new object[] {
             "C1",
@@ -210,141 +228,163 @@
             "C5",
             "C6",
             "C7"});
-            this.txtCamin.Location = new System.Drawing.Point(855, 293);
+            this.txtCamin.Location = new System.Drawing.Point(821, 294);
             this.txtCamin.Name = "txtCamin";
-            this.txtCamin.Size = new System.Drawing.Size(121, 24);
+            this.txtCamin.Size = new System.Drawing.Size(200, 31);
             this.txtCamin.TabIndex = 15;
-            this.txtCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             // 
             // EroareNume
             // 
             this.EroareNume.AutoSize = true;
             this.EroareNume.BackColor = System.Drawing.Color.Transparent;
-            this.EroareNume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareNume.ForeColor = System.Drawing.Color.Red;
+            this.EroareNume.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareNume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareNume.Location = new System.Drawing.Point(379, 74);
             this.EroareNume.Name = "EroareNume";
-            this.EroareNume.Size = new System.Drawing.Size(0, 25);
+            this.EroareNume.Size = new System.Drawing.Size(0, 19);
             this.EroareNume.TabIndex = 16;
             // 
             // EroarePrenume
             // 
             this.EroarePrenume.AutoSize = true;
-            this.EroarePrenume.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroarePrenume.ForeColor = System.Drawing.Color.Red;
+            this.EroarePrenume.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroarePrenume.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroarePrenume.Location = new System.Drawing.Point(379, 146);
             this.EroarePrenume.Name = "EroarePrenume";
-            this.EroarePrenume.Size = new System.Drawing.Size(0, 25);
+            this.EroarePrenume.Size = new System.Drawing.Size(0, 19);
             this.EroarePrenume.TabIndex = 17;
             // 
             // EroareData
             // 
             this.EroareData.AutoSize = true;
-            this.EroareData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareData.ForeColor = System.Drawing.Color.Red;
+            this.EroareData.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareData.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareData.Location = new System.Drawing.Point(994, 73);
             this.EroareData.Name = "EroareData";
-            this.EroareData.Size = new System.Drawing.Size(0, 25);
+            this.EroareData.Size = new System.Drawing.Size(0, 19);
             this.EroareData.TabIndex = 18;
             // 
             // EroareFacultate
             // 
             this.EroareFacultate.AutoSize = true;
-            this.EroareFacultate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareFacultate.ForeColor = System.Drawing.Color.Red;
+            this.EroareFacultate.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareFacultate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareFacultate.Location = new System.Drawing.Point(379, 299);
             this.EroareFacultate.Name = "EroareFacultate";
-            this.EroareFacultate.Size = new System.Drawing.Size(0, 25);
+            this.EroareFacultate.Size = new System.Drawing.Size(0, 19);
             this.EroareFacultate.TabIndex = 19;
             // 
             // EroareNationalitate
             // 
             this.EroareNationalitate.AutoSize = true;
-            this.EroareNationalitate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareNationalitate.ForeColor = System.Drawing.Color.Red;
+            this.EroareNationalitate.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareNationalitate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareNationalitate.Location = new System.Drawing.Point(379, 221);
             this.EroareNationalitate.Name = "EroareNationalitate";
-            this.EroareNationalitate.Size = new System.Drawing.Size(0, 25);
+            this.EroareNationalitate.Size = new System.Drawing.Size(0, 19);
             this.EroareNationalitate.TabIndex = 20;
             // 
             // EroareNr_matricol
             // 
             this.EroareNr_matricol.AutoSize = true;
-            this.EroareNr_matricol.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareNr_matricol.ForeColor = System.Drawing.Color.Red;
+            this.EroareNr_matricol.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareNr_matricol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareNr_matricol.Location = new System.Drawing.Point(988, 142);
             this.EroareNr_matricol.Name = "EroareNr_matricol";
-            this.EroareNr_matricol.Size = new System.Drawing.Size(0, 25);
+            this.EroareNr_matricol.Size = new System.Drawing.Size(0, 19);
             this.EroareNr_matricol.TabIndex = 21;
             // 
             // EroareMedia
             // 
             this.EroareMedia.AutoSize = true;
-            this.EroareMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareMedia.ForeColor = System.Drawing.Color.Red;
+            this.EroareMedia.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareMedia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareMedia.Location = new System.Drawing.Point(982, 222);
             this.EroareMedia.Name = "EroareMedia";
-            this.EroareMedia.Size = new System.Drawing.Size(0, 25);
+            this.EroareMedia.Size = new System.Drawing.Size(0, 19);
             this.EroareMedia.TabIndex = 22;
             // 
             // EroareCamin
             // 
             this.EroareCamin.AutoSize = true;
-            this.EroareCamin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.EroareCamin.ForeColor = System.Drawing.Color.Red;
+            this.EroareCamin.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.EroareCamin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.EroareCamin.Location = new System.Drawing.Point(988, 298);
             this.EroareCamin.Name = "EroareCamin";
-            this.EroareCamin.Size = new System.Drawing.Size(0, 25);
+            this.EroareCamin.Size = new System.Drawing.Size(0, 19);
             this.EroareCamin.TabIndex = 23;
             // 
             // btnAdauga
             // 
-            this.btnAdauga.Location = new System.Drawing.Point(337, 350);
-            this.btnAdauga.Name = "btnAdauga";
-            this.btnAdauga.Size = new System.Drawing.Size(150, 49);
-            this.btnAdauga.TabIndex = 24;
-            this.btnAdauga.Text = "Adauga";
-            this.btnAdauga.UseVisualStyleBackColor = true;
-            this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
             this.btnAdauga.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnAdauga.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdauga.FlatAppearance.BorderSize = 0;
             this.btnAdauga.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdauga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnAdauga.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnAdauga.ForeColor = System.Drawing.Color.White;
+            this.btnAdauga.Location = new System.Drawing.Point(218, 400);
+            this.btnAdauga.Name = "btnAdauga";
+            this.btnAdauga.Size = new System.Drawing.Size(180, 40);
+            this.btnAdauga.TabIndex = 2;
+            this.btnAdauga.Text = "Adauga";
+            this.btnAdauga.UseVisualStyleBackColor = false;
+            this.btnAdauga.Click += new System.EventHandler(this.btnAdauga_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(496, 350);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(150, 49);
-            this.btnReset.TabIndex = 25;
-            this.btnReset.Text = "Reseteaza";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(117)))), ((int)(((byte)(125)))));
+            this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.FlatAppearance.BorderSize = 0;
             this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.Location = new System.Drawing.Point(443, 400);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(180, 40);
+            this.btnReset.TabIndex = 1;
+            this.btnReset.Text = "Reseteaza";
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnCauatare
             // 
-            this.btnCauatare.Location = new System.Drawing.Point(634, 350);
-            this.btnCauatare.Name = "btnCauatare";
-            this.btnCauatare.Size = new System.Drawing.Size(150, 49);
-            this.btnCauatare.TabIndex = 26;
-            this.btnCauatare.Text = "Cautare";
-            this.btnCauatare.UseVisualStyleBackColor = true;
-            this.btnCauatare.Click += new System.EventHandler(this.btnCauatare_Click);
-            this.btnCauatare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnCauatare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnCauatare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCauatare.FlatAppearance.BorderSize = 0;
             this.btnCauatare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCauatare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btnCauatare.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.btnCauatare.ForeColor = System.Drawing.Color.White;
+            this.btnCauatare.Location = new System.Drawing.Point(656, 400);
+            this.btnCauatare.Name = "btnCauatare";
+            this.btnCauatare.Size = new System.Drawing.Size(180, 40);
+            this.btnCauatare.TabIndex = 0;
+            this.btnCauatare.Text = "Cautare";
+            this.btnCauatare.UseVisualStyleBackColor = false;
+            this.btnCauatare.Click += new System.EventHandler(this.btnCauatare_Click);
+            // 
+            // btnModificare
+            // 
+            this.btnModificare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(193)))), ((int)(((byte)(7)))));
+            this.btnModificare.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificare.FlatAppearance.BorderSize = 0;
+            this.btnModificare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificare.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnModificare.ForeColor = System.Drawing.Color.White;
+            this.btnModificare.Location = new System.Drawing.Point(443, 462);
+            this.btnModificare.Name = "btnModificare";
+            this.btnModificare.Size = new System.Drawing.Size(180, 40);
+            this.btnModificare.TabIndex = 3;
+            this.btnModificare.Text = "Modificare";
+            this.btnModificare.UseVisualStyleBackColor = false;
+            this.btnModificare.Click += new System.EventHandler(this.btnModificare_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1076, 450);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.Controls.Add(this.btnModificare);
             this.Controls.Add(this.btnCauatare);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnAdauga);
@@ -372,12 +412,15 @@
             this.Controls.Add(this.lblData);
             this.Controls.Add(this.lblPrenume);
             this.Controls.Add(this.lblNume);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestionare Studenți";
+            this.Text = "Gestionare Studenți - Sistem de Cazare în Cămine";
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -409,6 +452,7 @@
         private System.Windows.Forms.Button btnAdauga;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnCauatare;
+        private System.Windows.Forms.Button btnModificare;
     }
 }
 

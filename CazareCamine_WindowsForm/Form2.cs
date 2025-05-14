@@ -1,5 +1,4 @@
-﻿using CazareCamine;
-using StocareDateNiveluri;
+﻿using StocareDateNiveluri;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibrarieModel;
 
 namespace CazareCamine_WindowsForm
 {
@@ -35,6 +35,11 @@ namespace CazareCamine_WindowsForm
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminStudenti = new AdministrareStudenti_FisierText(caleCompletaFisier);
            
+            // Adăugare handler pentru selectarea unui rând din grid
+            gridStudent.SelectionChanged += GridStudent_SelectionChanged;
+
+            // Inițializare ComboBox pentru cămin
+            txtEditCamin.Items.AddRange(Enum.GetNames(typeof(Camin)));
 
             List<Student> studenti = adminStudenti.GetStudenti();
 
@@ -50,6 +55,31 @@ namespace CazareCamine_WindowsForm
 
 
 
+        }
+
+        private void GridStudent_SelectionChanged(object sender, EventArgs e)
+        {
+            if (gridStudent.SelectedRows.Count > 0)
+            {
+                var selectedRow = gridStudent.SelectedRows[0];
+                var student = adminStudenti.GetStudent_NrMatricol(selectedRow.Cells["Nr_matricol"].Value.ToString());
+                
+                if (student != null)
+                {
+                    // Populare câmpuri cu datele studentului selectat
+                    txtEditNume.Text = student.Nume;
+                    txtEditPrenume.Text = student.Prenume;
+                    txtEditData.Text = student.Data_nasterii;
+                    txtEditNationalitate.Text = student.Nationalitate;
+                    txtEditNrMatricol.Text = student.Nr_matricol;
+                    txtEditMedia.Text = student.Medie.ToString();
+                    txtEditFacultate.Text = student.Facultate;
+                    txtEditCamin.SelectedItem = student.CaminStudent.ToString();
+
+                    // Afișare panou editare
+                    panelEdit.Visible = true;
+                }
+            }
         }
 
         public void AfiseazaStudenti(List<Student> studenti)
@@ -147,6 +177,83 @@ namespace CazareCamine_WindowsForm
             gridStudent.DataSource = cititori.Select(s => new { s.Nume, s.Prenume, s.Data_nasterii, s.Nationalitate, s.Nr_matricol, s.Medie, s.Facultate}).ToList();
         }
 
+        private void btnSalveaza_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validare date
+                if (string.IsNullOrWhiteSpace(txtEditNume.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditPrenume.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditData.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditNationalitate.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditNrMatricol.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditMedia.Text) ||
+                    string.IsNullOrWhiteSpace(txtEditFacultate.Text) ||
+                    txtEditCamin.SelectedItem == null)
+                {
+                    MessageBox.Show("Toate câmpurile sunt obligatorii!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                // Validare date specifice
+                if (!DateTime.TryParseExact(txtEditData.Text, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out _))
+                {
+                    MessageBox.Show("Data trebuie să fie în formatul dd.mm.yyyy!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!double.TryParse(txtEditMedia.Text, out double media))
+                {
+                    MessageBox.Show("Media trebuie să fie un număr valid!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Creare obiect Student cu noile date
+                Student studentModificat = new Student(
+                    txtEditNume.Text.Trim(),
+                    txtEditPrenume.Text.Trim(),
+                    txtEditData.Text.Trim(),
+                    txtEditNationalitate.Text.Trim(),
+                    txtEditNrMatricol.Text.Trim(),
+                    media,
+                    txtEditFacultate.Text.Trim(),
+                    (Camin)Enum.Parse(typeof(Camin), txtEditCamin.SelectedItem.ToString())
+                );
+
+                // Actualizare în fișier
+                List<Student> studenti = adminStudenti.GetStudenti();
+                for (int i = 0; i < studenti.Count; i++)
+                {
+                    if (studenti[i].Nr_matricol == studentModificat.Nr_matricol)
+                    {
+                        studenti[i] = studentModificat;
+                        break;
+                    }
+                }
+
+                // Rescriere fișier cu datele actualizate
+                File.WriteAllText(adminStudenti.GetNumeFisier(), string.Empty); // Șterge conținutul fișierului
+                foreach (var student in studenti)
+                {
+                    adminStudenti.AddStudent(student);
+                }
+
+                MessageBox.Show("Datele studentului au fost actualizate cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                // Actualizare grid și ascundere panou editare
+                AfiseazaGrid(studenti);
+                panelEdit.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Eroare la salvarea datelor: {ex.Message}", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // Adăugare metodă pentru a obține numele fișierului
+        public string GetNumeFisier()
+        {
+            return adminStudenti.GetNumeFisier();
+        }
     }
 }
